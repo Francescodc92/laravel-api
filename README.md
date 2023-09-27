@@ -1,23 +1,33 @@
-> Esercizio Laravel Boolfolio - Project Technology
+> Esercizio Laravel Boolfolio - API
 
 ![preview](./.github/preview.png)
 
-## continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità Technology
+## Laravel Boolfolio - API
 
 - DESCRIZIONE:
-  - continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità Technology. Questa entità rappresenta le tecnologie utilizzate ed è in relazione many to many con i progetti.
-  - I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi:
-    - creare la migration per la tabella technologies
-    - creare il model Technology
-    - creare la migration per la tabella pivot project_technology
-    - aggiungere ai model Technology e Project i metodi per definire la relazione many to many
-    - visualizzare nella pagina di dettaglio di un progetto le tecnologie utilizzate, se presenti
-    - permettere all'utente di associare le tecnologie nella pagina di creazione e modifica di un progetto
-    - gestire il salvataggio dell'associazione progetto-tecnologie con opportune regole di validazione
+  - continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo. L'esercizio di oggi è suddiviso in milestone ed è importante che ne seguiate l'ordine.
+
+
+- MILESTONE 1 :
+  -  Aggiungiamo al nostro progetto Laravel una nuovo Api/ProjectController.
+   - Questo controller risponderà a delle richieste via API e si occuperà di restituire la lista dei progetti presenti nel database in formato json.
+
+- MILESTONE 2 :
+  -  Testiamo la chiamata API tramite Postman e assicuriamoci di ricevere i dati correttamente
+
+- MILESTONE 3 :
+  -  Iniziamo ad occuparci della parte front-office della nostra applicazione: creiamo un nuovo progetto Vue 3 con Vite e installiamo axios.
+
+- MILESTONE 4 :
+  -  Nel componente principale della nostra Vue App facciamo una chiamata API all'endpoint costruito nel progetto Laravel (milestone 1) e recuperiamo tutti i progetti dal nostro back-end.Stampiamo in console i risultati e verifichiamo di ricevere i dati correttamente.
+
+- MILESTONE 5 :
+  -  Creiamo un nuovo componente ProjectCard, che corrisponde ad una card per visualizzare un progetto. Utilizziamo questo componente per visualizzare tutti i progetti ricevuti tramite API.
 
 - BONUS
-  - creare il seeder per il model Technology.
-  - aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
+  - Gestire la paginazione dei risultati
+
+
 
 ## Tecnologie
 
