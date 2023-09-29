@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
+//helpers
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -42,7 +43,7 @@ class ProjectController extends Controller
 
         $preview_path = null;
         if (isset($formData['preview'])) {
-            $preview_path = Storage::put('uploads', $formData['preview']);
+            $preview_path = Storage::put('uploads/images', $formData['preview']);
         }
 
 
@@ -96,7 +97,7 @@ class ProjectController extends Controller
                 Storage::delete($project->preview);
             }
 
-            $preview_path = Storage::put('uploads', $formData['preview']);
+            $preview_path = Storage::put('uploads/images', $formData['preview']);
         }
         else if (isset($formData['remove_preview_img'])){
             if($project->preview){
@@ -128,6 +129,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->preview){
+            Storage::delete($project->preview);
+        }
+
         $project->delete();
         return redirect()->route('admin.projects.index');
     }

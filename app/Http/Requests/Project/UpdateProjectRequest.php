@@ -31,7 +31,7 @@ class UpdateProjectRequest extends FormRequest
             'type_id'=>'nullable|exists:types,id',
             'technologies'=>'nullable|array',
             'technologies.*'=>'exists:technologies,id',
-            'remove_preview_img'=> 'nullable'
+            'remove_preview_img'=> 'nullable|boolean'
         ];
     }
 
@@ -46,7 +46,7 @@ class UpdateProjectRequest extends FormRequest
             'description.required'=> 'la descrizione è obligatoria',
             'type_id.exists'=> 'la categoria non esiste',
             'technologies.array'=> 'il dato tecnologie non è una collezione di tecnologie quindi non è valido',
-            'technologies.exists'=> 'la tecnologia passata non esiste nella lista delle tecnologie' // chiedere ad alessio come creare un messaggio per la validazione 
+            'technologies.exists'=> 'la tecnologia passata non esiste nella lista delle tecnologie' 
         ];
     }
 }

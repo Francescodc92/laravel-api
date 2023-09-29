@@ -43,6 +43,7 @@
          type="file" 
          id="preview" 
          name="preview"
+         accept="image/*"
         >
         @error('preview')
             <div class="alert alert-danger my-2">
@@ -64,13 +65,14 @@
             class="img-fluid rounded-start h-100" 
             alt="{{ $project->title }}"
           >
+          <div class="mt-2">
+            <input type="checkbox" class="btn-check" id="remove_preview_img" name="remove_preview_img" value="1" autocomplete="off">
+            <label class="btn btn-outline-primary text-capitalize" for="remove_preview_img">rimuovi immagine</label>
+          </div>
         @else
             <p class="mt-1 text-info text-capitalize">nessuna immagine precedentemente allegata</p>
         @endif
-        <div class="mt-2">
-          <input type="checkbox" class="btn-check" id="remove_preview_img" name="remove_preview_img" value="1" autocomplete="off">
-          <label class="btn btn-outline-primary text-capitalize" for="remove_preview_img">rimuovi immagine</label>
-        </div>
+      
       </div>
       
       <div class="row">

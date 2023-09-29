@@ -36,6 +36,11 @@
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
+                            <p class="d-inline-block fw-bold text-capitalize me-3">
+                                User:
+                              {{ auth()->user()->name }}
+                            </p>
+
 
                             <button type="submit" class="btn btn-outline-danger">
                                 Log Out

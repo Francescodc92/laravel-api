@@ -19,6 +19,7 @@ class ProjectTechnologySeeder extends Seeder
     {
 
         for ($i=0; $i < 30; $i++) { 
+            
             $rendomProject = Project::inRandomOrder()->first();
             $rendomTechnology = Technology::inRandomOrder()->first();
             

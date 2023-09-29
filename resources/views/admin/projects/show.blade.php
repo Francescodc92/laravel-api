@@ -11,13 +11,7 @@
     <div class="col-md-4 ">
       @if ($project->preview)
       <img 
-        src="{{ 
-          Str::startsWith($project->preview, 'https') 
-          ? 
-          $project->preview 
-          : 
-          asset('storage/'. $project->preview) 
-        }}" 
+        src="{{ $project->full_preview_img }}" 
         class="img-fluid rounded-start h-100" 
         alt="{{ $project->title }}"
       >

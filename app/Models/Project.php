@@ -18,6 +18,22 @@ class Project extends Model
         'type_id',
     ];
 
+    protected $appends = [
+        'full_preview_img'
+    ];
+
+    /*
+        Custom attributes
+    */
+
+    public function getFullPreviewImgAttribute()
+    {
+        if($this->preview){
+            return asset('storage/'. $this->preview);
+        }
+        return null;
+    }
+
     /*
         Relationships
     */

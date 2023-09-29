@@ -42,6 +42,7 @@
          type="file" 
          id="preview" 
          name="preview"
+         accept="image/*"
         >
         @error('preview')
             <div class="alert alert-danger my-2">
