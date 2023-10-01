@@ -17,7 +17,7 @@ class ProjectController extends Controller
 
     public function show(string $id){
        
-        $results = Project::find($id);
+        $results = Project::with('technologies', 'type')->find($id);
         $success = false;
         if($results){
             $success = true;

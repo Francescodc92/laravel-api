@@ -13,44 +13,36 @@ class ProjectSeeder extends Seeder
 {
     public function run(): void
     {
+        Storage::deleteDirectory('uploads/images');
+        Storage::makeDirectory('uploads/images');
+        
         Schema::withoutForeignKeyConstraints(function () {
             Project::truncate();
         });      
         
-        Storage::deleteDirectory('uploads/images');
-        Storage::makeDirectory('uploads/images');
-        
-        for ($i=0; $i < 30; $i++) { 
-            $randomType = Type::inRandomOrder()->first()->id;
+       
             
-            $coverImg = null;
-            if (fake()->boolean()) {
-                $coverImg = fake()->image(storage_path('app/public/uploads/images'), 360, 360, 'animals', false, true, 'cats', false, 'jpg');
-                if ($coverImg != '') {
-                    $coverImg = 'uploads/images/'.$coverImg;
+            for ($i=0; $i < 30; $i++) { 
+                $randomType = Type::inRandomOrder()->first()->id;
+                
+                $coverImg = null;
+                if (fake()->boolean()) {
+                    $coverImg = fake()->image(storage_path('app/public/uploads/images'), 360, 360, 'animals', false, true, 'cats', false, 'jpg');
+                    if ($coverImg != '') {
+                        $coverImg = 'uploads/images/'.$coverImg;
+                    }
+                    else {
+                        $coverImg = null;
+                    }
                 }
-                else {
-                    $coverImg = null;
-                }
-            }
-        
-            Project::create([
-                'title'=> substr(fake()->sentence(3),0,100),
-                'preview'=> $coverImg,
-                'collaborators'=>substr(fake()->sentence(3),0,255),
-                'description'=> fake()->paragraph(),
-                'type_id'=> $randomType,
-            ]);
-
-            // $rendomType = Type::inRandomOrder()->first();
             
-            // Project::create([
-            //     'title'=> substr(fake()->sentence(3),0,100),
-            //     'preview'=> fake()->imageUrl(400, 300),
-            //     'collaborators'=>substr(fake()->sentence(3),0,255),
-            //     'description'=> fake()->paragraph(),
-            //     'type_id'=> $rendomType->id,
-            // ]);
+                Project::create([
+                    'title'=> substr(fake()->sentence(3),0,100),
+                    'preview'=> $coverImg,
+                    'collaborators'=>substr(fake()->sentence(3),0,255),
+                    'description'=> fake()->paragraph(),
+                    'type_id'=> $randomType,
+                ]);
 
         }
     }
